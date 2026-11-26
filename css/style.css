@@ -1,0 +1,1514 @@
+﻿/* ==========================================================================
+   DILENA RASA GAMANA: STYLESHEET
+   Sections (use Ctrl+F on the number to jump):
+     1. Colors & base          8. Quick view pop-up       15. Cart drawer
+     2. Shared pieces          9. Gift banner strip       16. WhatsApp button
+     3. Loading screen        10. Gift box builder        17. Phones & tablets
+     4. Header                11. Sweet stories           18. Reduced motion
+     5. Banner slider         12. Customer reviews
+     6. Trust strip           13. Newsletter
+     7. Product cards         14. Footer
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. COLORS & BASE
+   Change a color here and it updates across the whole site.
+   ========================================================================== */
+:root {
+  --w:  #FFFDF8;   /* warm white (main background) */
+  --cr: #F5EDE0;   /* soft cream (header, footer, alternate sections) */
+  --ly: #F6E3A1;   /* light yellow */
+  --hn: #D9A441;   /* honey (buttons, highlights) */
+  --lb: #C9A27A;   /* light brown (borders, icons) */
+  --br: #5A3A22;   /* dark brown (text) */
+  --tc: #B5533C;   /* muted terracotta (rare accent) */
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;   /* keeps section titles clear of the sticky header */
+}
+
+body {
+  font: 16px/1.6 'Nunito Sans', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
+  background: var(--w);
+  color: var(--br);
+}
+
+h1, h2, h3, .logo {
+  font-family: Fraunces, 'Noto Sans Sinhala', 'Noto Sans Tamil', serif;
+  line-height: 1.2;
+}
+
+h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); }
+img { max-width: 100%; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--hn); outline-offset: 2px; }
+
+/* Every page section: spacing + centered text. Add class "cr" for a cream background */
+section { padding: 56px 5vw; text-align: center; }
+.cr { background: var(--cr); }
+
+
+/* ==========================================================================
+   2. SHARED PIECES (used in several places)
+   ========================================================================== */
+
+/* Round honey button */
+.btn {
+  background: var(--hn);
+  color: #fff;
+  border: 0;
+  border-radius: 30px;
+  padding: 10px 26px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: .2s;
+}
+.btn:hover:not(:disabled) { background: var(--br); transform: translateY(-2px); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* Small scalloped divider line under section titles */
+.pat {
+  height: 14px;
+  max-width: 220px;
+  margin: 10px auto 32px;
+  background: radial-gradient(circle at 50% 100%, transparent 6px, var(--lb) 7px, var(--lb) 8px, transparent 9px) 0 0 / 16px 14px;
+}
+
+/* Quantity  [-] 2 [+]  (quick view, gift box, cart) */
+.qty { display: flex; align-items: center; gap: 14px; margin: 12px 0; }
+.qty button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--hn);
+  background: none;
+}
+
+/* "Nothing here yet" message */
+.em { color: var(--lb); padding: 18px 0; }
+
+
+/* ==========================================================================
+   3. LOADING SCREEN (logo with a soft pulse, hidden by main.js after load)
+   ========================================================================== */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  background: var(--w);
+  transition: opacity .6s, visibility .6s;
+}
+#loader.off { opacity: 0; visibility: hidden; }
+
+.mark {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 3px solid var(--hn);
+  object-fit: cover;
+  animation: bloom 1.6s ease-in-out infinite;
+}
+#loader p {
+  font: 500 1.3rem Fraunces, serif;
+  letter-spacing: .1em;
+  animation: fade 1.6s ease-in-out infinite;
+}
+
+@keyframes bloom {
+  0%, 100% { transform: scale(.9); box-shadow: 0 0 0 0 rgba(217, 164, 65, .5); }
+  50%      { transform: scale(1);  box-shadow: 0 0 0 18px rgba(217, 164, 65, 0); }
+}
+@keyframes fade { 50% { opacity: .4; } }
+
+
+/* ==========================================================================
+   4. HEADER (stays at the top while scrolling)
+   Row 1 = thin top bar   |   Row 2 = logo, search, menu, language, cart
+   ========================================================================== */
+#hdr {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--cr);
+  border-bottom: 1px solid var(--lb);
+}
+
+/* --- Top bar: About/Contact (left), phone/locations (right) --- */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 5vw;
+  font-size: .85rem;
+  background: var(--ly);
+}
+.tl, .tr { display: flex; gap: 22px; }
+.top a { color: inherit; text-decoration: none; }
+.top a:hover { color: var(--tc); }
+
+/* --- Main row --- */
+.main { display: flex; align-items: center; gap: 22px; padding: 13px 5vw; }
+
+.logo { display: flex; align-items: center; gap: 12px; color: var(--br); text-decoration: none; }
+.logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--hn);
+  background: #fff;
+}
+.logo span { font-size: clamp(1.25rem, 3.8vw, 1.85rem); font-weight: 700; }
+
+#search {
+  font-size: 1.05rem;
+  margin-left: auto;
+  flex: 1;
+  max-width: 420px;
+  padding: 9px 16px;
+  border: 1px solid var(--lb);
+  border-radius: 30px;
+  background: var(--w);
+}
+
+/* Menu links: Our Sweets, Gift Box, Reviews, Delivery */
+#nav { display: flex; gap: 24px; }
+#nav a { color: var(--br); text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+#nav a:hover { color: var(--hn); }
+
+/* Right side: language switch + cart + (phone-only) menu button */
+.tools { display: flex; align-items: center; gap: 12px;}
+.lg { display: flex; align-items: center; gap: 4px; }
+.tools select, .tools button {
+  font-size: 1rem;
+  background: var(--w);
+  border: 1px solid var(--lb);
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+#burger { display: none; }   /* shown on phones (see section 17) */
+
+/* Round cart button with the item-count bubble */
+#cartBtn {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--ly);
+}
+#cnt {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--hn);
+  color: #fff;
+  font-size: .75rem;
+}
+.bump { animation: bump .3s; }   /* the count "pops" when an item is added */
+@keyframes bump { 50% { transform: scale(1.6); } }
+
+
+/* ==========================================================================
+   5. BANNER SLIDER (3 images + 1 video, slides sideways)
+   Height = screen height minus header (the --hh value is set in main.js)
+   ========================================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background: var(--ly);
+  cursor: pointer;
+}
+.track { display: flex; transition: transform .8s cubic-bezier(.65, 0, .35, 1); }
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+  height: calc(100vh - var(--hh, 135px));
+  height: calc(100dvh - var(--hh, 135px));
+  min-height: 320px;
+}
+
+/* Image slides use <picture> (desktop image + phone image) */
+.slide picture { position: absolute; inset: 0; }
+.slide picture img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Video slide: "contain" shows the whole frame without zooming */
+.slide video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* ==========================================================================
+   ANIMATED "HOW TO ORDER" SLIDE (Slide 3)
+   ========================================================================== */
+.slide-order {
+  background: radial-gradient(circle at 75% 35%, #FFF6E5 0%, #F5EDE0 55%, #EAD6BE 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.os-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#D9A441 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.os-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 24px 5vw;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 36px;
+  text-align: left;
+}
+
+/* Left side: Information & Stepper */
+.os-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.os-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(217, 164, 65, 0.16);
+  border: 1px solid rgba(217, 164, 65, 0.4);
+  color: #9C6313;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.os-title {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  color: var(--br);
+  margin: 8px 0 14px;
+  line-height: 1.2;
+}
+
+.os-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.os-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1.5px solid transparent;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.os-step.is-active {
+  background: #FFFDF8;
+  border-color: var(--hn);
+  box-shadow: 0 4px 14px rgba(90, 58, 34, 0.08);
+  transform: translateX(6px);
+}
+
+.os-icon {
+  font-size: 1.35rem;
+  flex: 0 0 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(217, 164, 65, 0.14);
+}
+
+.os-step.is-active .os-icon {
+  background: var(--hn);
+  transform: scale(1.08);
+}
+
+.os-txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.os-txt strong {
+  font-size: 0.95rem;
+  color: var(--br);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.os-txt span {
+  font-size: 0.76rem;
+  color: #826046;
+  margin-top: 2px;
+}
+
+.os-bar-wrap {
+  width: 100%;
+  height: 4px;
+  background: rgba(90, 58, 34, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.os-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--hn), #E3B356);
+  border-radius: 4px;
+  transition: width 0.15s linear;
+}
+
+.os-action .btn {
+  padding: 9px 24px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(217, 164, 65, 0.35);
+}
+
+/* Right side: Interactive Device Simulation */
+.os-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.os-phone {
+  width: 100%;
+  max-width: 360px;
+  background: #FFFDF8;
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(90, 58, 34, 0.14), 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid rgba(201, 162, 122, 0.35);
+  overflow: hidden;
+}
+
+.os-phone-bar {
+  background: #F5EDE0;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(201, 162, 122, 0.25);
+}
+
+.os-phone-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.os-phone-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #C9A27A;
+}
+
+.os-phone-url {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #826046;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.os-phone-cart {
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.os-badge-cnt {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: var(--tc);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.os-badge-cnt.bump {
+  transform: scale(1.35);
+}
+
+/* Stage & Animated Elements */
+.os-stage {
+  position: relative;
+  height: 310px;
+  background: #FCFAF7;
+  overflow: hidden;
+}
+
+.os-fly-sweet {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1), opacity 0.6s ease;
+}
+
+.os-cursor {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: rgba(90, 58, 34, 0.75);
+  border: 2px solid #FFFDF8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 60;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: top 0.45s ease, left 0.45s ease, transform 0.2s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.os-cursor.clicking {
+  transform: scale(0.75);
+  background: var(--hn);
+}
+
+/* Scenes */
+.os-scene {
+  position: absolute;
+  inset: 0;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.os-scene.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Scene 1: Product card */
+.os-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFDF8;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(201, 162, 122, 0.35);
+  box-shadow: 0 4px 12px rgba(90, 58, 34, 0.06);
+}
+
+.os-card-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 0 0 80px;
+}
+
+.os-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.os-card-body h4 {
+  font-size: 1.05rem;
+  color: var(--br);
+  margin-bottom: 2px;
+}
+
+.os-price {
+  color: var(--hn);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.os-card-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #F5EDE0;
+  border-radius: 14px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--br);
+  margin-bottom: 8px;
+}
+
+.os-card-btn {
+  background: var(--hn);
+  color: #fff;
+  border: 0;
+  border-radius: 16px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(217, 164, 65, 0.3);
+  transition: transform 0.15s ease;
+}
+
+/* Scene 2: Cart Drawer */
+.os-cart-drawer {
+  background: #FFFDF8;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(201, 162, 122, 0.35);
+  box-shadow: 0 4px 14px rgba(90, 58, 34, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.os-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--br);
+  border-bottom: 1px solid #F5EDE0;
+  padding-bottom: 5px;
+}
+
+.os-drawer-close {
+  color: #826046;
+  font-size: 0.8rem;
+}
+
+.os-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+}
+
+.os-item-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex: 0 0 32px;
+}
+
+.os-item-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.os-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.os-item-info b {
+  font-size: 0.82rem;
+  color: var(--br);
+}
+
+.os-item-info span {
+  font-size: 0.7rem;
+  color: #826046;
+}
+
+.os-item-total {
+  font-size: 0.82rem;
+  color: var(--br);
+}
+
+.os-drawer-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--br);
+  padding: 5px 0;
+  border-top: 1px dashed #E5D5C0;
+}
+
+.os-drawer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.os-field {
+  background: #FDF9F2;
+  border: 1px solid #EEDBC5;
+  border-radius: 5px;
+  padding: 3px 6px;
+  font-size: 0.72rem;
+  color: #5A3A22;
+}
+
+.os-btn-wa {
+  background: #25D366;
+  color: #fff;
+  border-radius: 16px;
+  padding: 6px 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.3);
+}
+
+.os-wa-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Scene 3: WhatsApp Chat */
+.os-chat-window {
+  background: #EFE7DE;
+  border-radius: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.os-chat-header {
+  background: #075E54;
+  color: #fff;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.os-chat-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  flex: 0 0 28px;
+}
+
+.os-chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.os-chat-header b {
+  font-size: 0.8rem;
+  display: block;
+  line-height: 1.1;
+}
+
+.os-chat-header small {
+  font-size: 0.64rem;
+  opacity: 0.85;
+  display: block;
+}
+
+.os-chat-body {
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.os-chat-msg {
+  max-width: 88%;
+  padding: 7px 9px;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.os-chat-out {
+  align-self: flex-end;
+  background: #DCF8C6;
+  border-top-right-radius: 2px;
+}
+
+.os-chat-in {
+  align-self: flex-start;
+  background: #FFF;
+  border-top-left-radius: 2px;
+}
+
+.os-chat-time {
+  font-size: 0.62rem;
+  color: #888;
+  float: right;
+  margin-left: 6px;
+  margin-top: 2px;
+}
+
+/* Scene 4: Bank Slip & Success */
+.os-bank-card {
+  background: #FFFDF8;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1.5px solid rgba(217, 164, 65, 0.4);
+  box-shadow: 0 4px 14px rgba(90, 58, 34, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.os-bank-badge {
+  background: #E8F5E9;
+  color: #2E7D32;
+  font-weight: 800;
+  font-size: 0.68rem;
+  border-radius: 12px;
+  padding: 2px 8px;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.os-bank-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.os-bank-icon {
+  font-size: 1.3rem;
+}
+
+.os-bank-top b {
+  font-size: 0.8rem;
+  color: var(--br);
+  display: block;
+}
+
+.os-bank-top small {
+  font-size: 0.66rem;
+  color: #826046;
+  display: block;
+}
+
+.os-slip-box {
+  background: #FDF9F2;
+  border: 1px dashed #C9A27A;
+  border-radius: 8px;
+  padding: 7px 10px;
+  margin: 4px 0;
+  text-align: left;
+}
+
+.os-slip-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.78rem;
+  border-bottom: 1px solid #EEDBC5;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  color: var(--br);
+}
+
+.os-slip-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #6A4830;
+  margin-bottom: 2px;
+}
+
+.os-status-done {
+  color: #2E7D32;
+  font-weight: 700;
+}
+
+.os-slip-badge {
+  background: #E1F5FE;
+  color: #0277BD;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 2px 4px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.os-success-pill {
+  background: linear-gradient(135deg, #D9A441, #B58025);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.74rem;
+  border-radius: 14px;
+  padding: 5px 10px;
+  box-shadow: 0 3px 8px rgba(217, 164, 65, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .os-wrap {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 4vw;
+    overflow-y: auto;
+  }
+  .os-info {
+    text-align: center;
+    align-items: center;
+  }
+  .os-badge {
+    align-self: center;
+  }
+  .os-stepper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .os-step {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  .os-step.is-active {
+    transform: none;
+  }
+  .os-txt span {
+    display: none;
+  }
+  .os-txt strong {
+    font-size: 0.8rem;
+  }
+  .os-demo {
+    width: 100%;
+  }
+  .os-phone {
+    max-width: 320px;
+  }
+  .os-stage {
+    height: 260px;
+  }
+}
+
+/* Text + button on top of a slide */
+.cap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 0 8vw;
+  background: linear-gradient(90deg, rgba(90, 58, 34, .65), transparent 70%);
+  color: #fff;
+  text-align: left;
+}
+.cap h1 { font-size: clamp(1.8rem, 5vw, 3.6rem); max-width: 12em; }
+
+/* Left / right arrows */
+.arr {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 253, 248, .85);
+  font-size: 1.6rem;
+}
+.arr.r { left: auto; right: 12px; }
+
+/* Dots at the bottom (active dot is a honey pill) */
+#dots { position: absolute; bottom: 14px; width: 100%; display: flex; justify-content: center; gap: 8px; }
+#dots button { width: 11px; height: 11px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .6); }
+#dots .on { width: 28px; border-radius: 8px; background: var(--hn); }
+
+
+/* ==========================================================================
+   6. TRUST STRIP (fresh daily / delivery / safe payment)
+   ========================================================================== */
+.trust {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 48px;
+  padding: 18px 5vw;
+  background: var(--cr);
+  font-weight: 600;
+}
+
+
+/* ==========================================================================
+   7. PRODUCT CARDS
+   ========================================================================== */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--cr);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+  transition: .25s;
+}
+.card:hover { box-shadow: 0 10px 26px rgba(90, 58, 34, .15); transform: translateY(-4px); }
+
+/* Square photo box (shows a honey gradient until you add the photo) */
+.ph { aspect-ratio: 1; background: linear-gradient(135deg, var(--ly), var(--lb)); overflow: hidden; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .4s; }
+.card:hover .ph img { transform: scale(1.07); }
+
+.info { padding: 14px; }
+.info h3 { font-size: 1.15rem; }
+.info .pr { color: var(--hn); font-weight: 700; margin: 4px 0 10px; }
+
+/* Quantity box on each card: [-] 20 [+] (type any amount) */
+.cq { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; }
+.cq button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--hn); background: none; }
+.cq .qi { width: 76px; }
+
+.acts { display: flex; gap: 8px; }
+.acts button { flex: 1; padding: 7px; border-radius: 20px; border: 1px solid var(--hn); background: none; }
+.acts .add { background: var(--hn); color: #fff; }
+
+/* The little sweet that flies into the cart */
+.fly {
+  position: fixed;
+  z-index: 60;
+  font-size: 1.6rem;
+  pointer-events: none;
+  transition: transform .7s ease-in, opacity .7s;
+}
+
+
+/* ==========================================================================
+   8. QUICK VIEW POP-UP
+   ========================================================================== */
+dialog {
+  max-width: min(680px, 92vw);
+  margin: auto;
+  padding: 22px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--w);
+  color: var(--br);
+}
+dialog::backdrop { background: rgba(90, 58, 34, .5); }
+#qvc { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+#qvc .ph { border-radius: 14px; }
+#qvc p { margin: 8px 0; }
+.x { position: absolute; top: 10px; right: 12px; border: 0; background: none; font-size: 1.3rem; }
+
+
+/* ==========================================================================
+   9. GIFT BANNER STRIP (dark brown band)
+   ========================================================================== */
+.ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 40px;
+  background: var(--br);
+  color: var(--ly);
+}
+
+
+/* ==========================================================================
+   10. GIFT BOX BUILDER (any quantity of any sweet)
+   ========================================================================== */
+/* Sweet choices; the round badge shows how many are in the box */
+#pick { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 800px; margin: auto; }
+#pick button {
+  position: relative;
+  display: grid;
+  padding: 8px 16px;
+  background: var(--cr);
+  border: 1px solid var(--lb);
+  border-radius: 14px;
+}
+#pick button:hover { background: var(--ly); }
+#pick small { color: var(--hn); }
+#pick em {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--hn);
+  color: #fff;
+  font-size: .75rem;
+  font-style: normal;
+}
+.qi {
+  width: 64px;
+  padding: 5px 4px;
+  border: 1px solid var(--lb);
+  border-radius: 8px;
+  background: var(--w);
+  text-align: center;
+}
+
+.qi { -moz-appearance: textfield; appearance: textfield; }
+.qi::-webkit-outer-spin-button, .qi::-webkit-inner-spin-button { -webkit-appearance: none; appearance: none; margin: 0; }
+
+/* The box contents list */
+#slots {
+  max-width: 520px;
+  margin: 26px auto;
+  padding: 10px 18px;
+  border: 3px double var(--lb);
+  border-radius: 14px;
+  background: var(--cr);
+}
+.br { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--lb); }
+.br:last-child { border: 0; }
+.br > span { flex: 1; text-align: left; font-weight: 600; }
+.br > b { min-width: 80px; text-align: right; }
+.br .qty { margin: 0; gap: 8px; }
+
+.tot { margin-bottom: 14px; font-size: 1.2rem; }
+
+
+/* ==========================================================================
+   11. SWEET STORIES (cards that flip on click)
+   ========================================================================== */
+#flips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+.flip { height: 300px; perspective: 900px; cursor: pointer; }
+.in { position: relative; height: 100%; transition: transform .6s; transform-style: preserve-3d; }
+.flip.on .in { transform: rotateY(180deg); }
+
+.f, .b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  border: 1px solid var(--lb);
+  border-radius: 16px;
+  backface-visibility: hidden;
+}
+/* Front face: food photo fills the card, dark fade at the bottom, white text on top */
+.f {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--hn), var(--br));   /* shown if a photo is missing */
+  color: #fff; text-align: center;
+}
+.f img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.flip:hover .f img { transform: scale(1.06); }
+.f::after {                                                      /* dark fade so white text stays readable */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(40, 22, 10, .85), rgba(40, 22, 10, .2) 60%, rgba(40, 22, 10, .35));
+}
+.f span, .f small, .f em { position: relative; z-index: 1; color: #fff; text-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+.f span { font: 700 1.5rem Fraunces, 'Noto Sans Sinhala', 'Noto Sans Tamil', serif; }
+.f small { opacity: .9; }                                                    /* English name under Sinhala/Tamil */
+.f em { margin-top: 6px; font-size: .8rem; font-style: normal; color: var(--ly); }   /* "Tap to read" hint */
+.b { display: block; overflow: auto; background: var(--w); transform: rotateY(180deg); text-align: left; }
+.b h4 { margin-bottom: 8px; color: var(--hn); font: 700 1.15rem Fraunces, 'Noto Sans Sinhala', 'Noto Sans Tamil', serif; }
+.b p { font-size: .92rem; line-height: 1.55; }
+.sintro { max-width: 680px; margin: -10px auto 28px; font-size: 1.05rem; }
+
+
+/* ==========================================================================
+   12. CUSTOMER REVIEWS
+   ========================================================================== */
+.avg { margin-bottom: 18px; font: 700 1.5rem Fraunces, serif; color: var(--hn); }
+
+/* Review cards slide sideways and snap into place */
+#rl {
+  display: flex;
+  gap: 18px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 6px 2px 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.rc {
+  flex: 0 0 min(300px, 80%);
+  scroll-snap-align: start;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--cr);
+  text-align: left;
+}
+.rc p { margin: 6px 0 10px; }
+.st { color: var(--hn); font-size: 1.2rem; }
+
+/* "Write a review" form */
+#rf { display: grid; gap: 10px; max-width: 420px; margin: 26px auto 0; }
+#rf input, #rf select, #rf textarea {
+  padding: 10px 14px;
+  border: 1px solid var(--lb);
+  border-radius: 12px;
+  background: var(--w);
+}
+
+
+.rmsg { min-height: 1.2em; font-size: .9rem; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }   /* spam trap, keep hidden */
+#rf button:disabled { opacity: .5; cursor: wait; }
+
+
+/* ==========================================================================
+   13. NEWSLETTER
+   ========================================================================== */
+.news form { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+.news input {
+  min-width: 240px;
+  padding: 10px 14px;
+  border: 1px solid var(--lb);
+  border-radius: 12px;
+  background: var(--w);
+}
+
+
+/* ==========================================================================
+   14. FOOTER
+   Brand + social | Shop | Company | Visit & call, then payments, then bottom bar
+   ========================================================================== */
+footer { padding: 0 5vw; background: var(--cr); border-top: 1px solid var(--lb); text-align: left; }
+footer .pat { margin: 18px auto 34px; }
+
+.fgrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+  gap: 36px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Column titles with a small honey underline */
+.fgrid h4 {
+  position: relative;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  font: 700 1.1rem Fraunces, 'Noto Sans Sinhala', 'Noto Sans Tamil', serif;
+}
+.fgrid h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 34px; height: 2px; background: var(--hn); }
+
+/* Footer links slide slightly right on hover */
+.fgrid a { display: block; padding: 3px 0; color: var(--br); text-decoration: none; transition: .2s; }
+.fgrid a:hover { color: var(--hn); transform: translateX(4px); }
+.fgrid .logo { display: flex; padding: 0; }
+.fb p { max-width: 40ch; margin: 12px 0 16px; }
+
+/* Round social buttons */
+.fgrid .soc { display: flex; gap: 10px; }
+.fgrid .soc a {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--br);
+  color: var(--ly);
+  font-size: .8rem;
+  font-weight: 700;
+}
+.fgrid .soc a:hover { background: var(--hn); color: #fff; transform: translateY(-3px); }
+
+/* Address / phone / email / hours */
+address { display: grid; gap: 12px; font-style: normal; }
+address > span { display: flex; gap: 10px; }
+
+/* "We accept" payment badges */
+.fpay {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 34px auto 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--lb);
+}
+.fpay b { margin-right: 8px; }
+.fpay span {
+  padding: 5px 12px;
+  border: 1px solid var(--lb);
+  border-radius: 8px;
+  background: var(--w);
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+/* Bottom bar: copyright + legal links (slightly darker cream) */
+.fbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 -5vw;
+  padding: 14px 5vw;
+  background: #EBDDC6;
+  font-size: .88rem;
+}
+.fbar nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.fbar a { color: var(--br); text-decoration: none; }
+.fbar a:hover { color: var(--hn); }
+
+
+/* ==========================================================================
+   15. CART DRAWER (slides in from the right)
+   main.js adds the class "co" to <body> to open it
+   ========================================================================== */
+body.co { overflow: hidden; }   /* stops the page scrolling behind the cart */
+
+/* Dark overlay behind the drawer */
+#ov {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(90, 58, 34, .5);
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+.co #ov { opacity: 1; pointer-events: auto; }
+
+#cd {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: min(400px, 100%);
+  height: 100%;
+  background: var(--w);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, .2);
+  transform: translateX(100%);
+  transition: transform .35s;
+}
+.co #cd { transform: none; }
+
+/* Drawer top: title + close button */
+.ch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--lb);
+  background: var(--cr);
+}
+#cx, .rm { border: 0; background: none; font-size: 1.2rem; }
+
+/* Cart items */
+#cl { flex: 1; overflow: auto; padding: 6px 20px; }
+.ci { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--cr); }
+.ci > div:first-child { flex: 1; display: grid; gap: 2px; }
+.ci > div:first-child span { color: var(--hn); font-weight: 700; }   /* price */
+.ci small { color: #8a6a4a; font-size: .8rem; }                     /* gift box contents */
+.ci .qty { margin: 0; gap: 6px; }
+.ci .qi { width: 58px; }
+
+/* Drawer bottom: subtotal + order form */
+.cf { padding: 14px 20px; border-top: 1px solid var(--lb); background: var(--cr); }
+.sub { display: flex; justify-content: space-between; font-size: 1.15rem; }
+.sm { margin: 2px 0 10px; font-size: .8rem; }
+#of { display: grid; gap: 8px; }
+#of input, #of textarea {
+  padding: 9px 12px;
+  border: 1px solid var(--lb);
+  border-radius: 10px;
+  background: var(--w);
+}
+
+
+/* ==========================================================================
+   16. FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.wa {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #25D366;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   17. TABLETS & PHONES
+   ========================================================================== */
+@media (max-width: 900px) {
+  .fgrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 800px) {
+  /* Header: logo + cart on row 1, search on row 2, menu opens under it */
+  .tl { display: none; }
+  .top { justify-content: center; }
+  .main { flex-wrap: wrap; }
+  .logo { flex: 1; }
+  #search { order: 3; flex: 1 0 100%; max-width: none; }
+  #burger { display: block; }
+  #nav { order: 4; flex: 1 0 100%; display: none; flex-direction: column; gap: 10px; padding: 6px 0; text-align: center; }
+  #nav.open { display: flex; }
+
+  .arr { display: none; }              /* swipe/auto-slide on phones */
+  #qvc { grid-template-columns: 1fr; } /* quick view stacks */
+}
+
+@media (max-width: 560px) {
+  .fgrid { grid-template-columns: 1fr; }
+  .fbar { justify-content: center; text-align: center; }
+  .fbar nav { justify-content: center; }
+}
+
+
+/* ==========================================================================
+   18. REDUCED MOTION (for visitors who turn animations off on their device)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ==========================================================================
+   19. ICONS + ORDER/STORE PAGES
+   ========================================================================== */
+.ic { width: 1em; height: 1em; fill: currentColor; display: block; }
+.fgrid .soc a .ic { width: 18px; height: 18px; }
+.wa { color: #fff; }
+.wa .ic { width: 30px; height: 30px; }
+
+.nv { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-left: auto; }
+.nv a { color: var(--br); text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+.nv a:hover, .nv a.on { color: var(--hn); }
+.op { max-width: 1000px; margin: auto; padding: 48px 5vw; text-align: center; }
+.op > p { max-width: 640px; margin: 0 auto; }
+
+/* Store locations page */
+#stlist { display: grid; gap: 28px; margin-top: 30px; text-align: left; }
+.store { display: grid; grid-template-columns: 1fr 1.4fr; gap: 22px; padding: 22px; border: 3px double var(--lb); border-radius: 16px; background: var(--w); }
+.store h3 { margin-bottom: 10px; }
+.store p { margin-bottom: 8px; }
+.store iframe { width: 100%; height: 320px; border: 0; border-radius: 12px; background: var(--cr); }
+.store .btn { margin-top: 8px; }
+@media (max-width: 800px) { .store { grid-template-columns: 1fr; } .store iframe { height: 260px; } }
+
+/* Gift box slide: text sits low and matches the banner picture's brown */
+.cap.low {
+  justify-content: flex-end;   /* pushes heading + button to the bottom */
+  padding-bottom: 8vh;         /* distance from the bottom edge */
+  background: none;            /* removes the dark shade that fights with brown text */
+}
+.cap.low h1 {
+  color: #5A3A22;              /* brown, the same as your site's text color */
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Banner 4 slide: artwork already has baked-in typography */
+.slide-b4 picture img {
+  object-position: top center;
+}
+.cap.cap-b4 {
+  background: none;
+  justify-content: flex-end;
+  padding-bottom: clamp(40px, 10vh, 90px);
+}
+.cap.cap-b4 .cap-b4-title {
+  display: none; /* Heading is already beautifully painted in the banner artwork */
+}
+.cap.cap-b4 .btn {
+  box-shadow: 0 4px 14px rgba(90, 58, 34, 0.25);
+}
+@media (max-width: 768px) {
+  .cap.cap-b4 {
+    align-items: center;
+    padding-bottom: 35px;
+  }
+}

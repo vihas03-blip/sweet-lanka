@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Online | Dilena Rasa Gamana</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Nunito+Sans:wght@400;600&family=Noto+Sans+Sinhala:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Styles used only on this page */
+  .nv { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-left: auto; }
+  .nv a { color: var(--br); text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+  .nv a:hover, .nv a.on { color: var(--hn); }
+
+  .op { max-width: 1000px; margin: auto; padding: 48px 5vw; text-align: center; }
+  .op > p { max-width: 640px; margin: 0 auto; }
+
+  /* Numbered steps */
+  .steps { display: grid; gap: 18px; margin: 30px 0; text-align: left; counter-reset: s; }
+  .stp { display: flex; gap: 16px; padding: 20px; background: var(--cr); border: 1px solid var(--lb); border-radius: 16px; }
+  .stp::before {
+    counter-increment: s; content: counter(s);
+    flex: 0 0 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--hn); color: #fff; font: 700 1.2rem Fraunces, serif;
+  }
+  .stp h3 { margin-bottom: 4px; }
+  .stp p { margin-bottom: 10px; }
+
+  /* Bank + contact cards */
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; text-align: left; }
+  .box { padding: 22px; border: 3px double var(--lb); border-radius: 16px; background: var(--w); }
+  .box h3 { margin-bottom: 12px; }
+  .box dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; }
+  .box dt { color: #8a6a4a; }
+  .box dd { font-weight: 600; }
+  .box .btn { padding: 4px 14px; font-size: .85rem; margin-left: 8px; }
+
+  .note { margin-top: 26px; padding: 16px; border-radius: 12px; background: var(--ly); }
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="i-fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+ <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+</defs></svg>
+
+<header id="hdr">
+ <div class="top">
+  <nav class="tl"><a href="#" data-i18n="about">About Us</a><a href="#contact" data-i18n="contact">Contact Us</a></nav>
+  <div class="tr"><a href="tel:+94773636717">📞 +94 77 3636 717</a><a href="stores.html">📍 <span data-i18n="stores">Store Locations</span></a></div>
+ </div>
+ <div class="main">
+  <a class="logo" href="index.html"><img src="images/logo.png" alt="Logo"><span data-i18n="brand">Dilena Rasa Gamana</span></a>
+  <nav class="nv"><a href="index.html#sweets" data-i18n="n1">Our Sweets</a><a href="index.html#gift" data-i18n="n3">Gift Box</a><a href="index.html#reviews" data-i18n="n4">Reviews</a><a class="on" href="order.html" data-i18n="order">Order Online</a></nav>
+  <div class="tools">
+   <label class="lg">🌐 <select id="lang" aria-label="Language"><option value="en">English</option><option value="si">සිංහල</option><option value="ta">தமிழ்</option></select></label>
+  </div>
+ </div>
+</header>
+
+<main class="op">
+ <h1 data-i18n="oTitle">How to Order Online</h1><div class="pat"></div>
+ <p data-i18n="oIntro">Order your favourite Sri Lankan sweets in four easy steps. You pay by bank transfer and send us the slip on WhatsApp.</p>
+
+ <div class="steps">
+  <div class="stp"><div>
+   <h3 data-i18n="s1t">Choose your sweets and add them to the cart</h3>
+   <p data-i18n="s1d">Pick your sweets, or build your own gift box, then open the cart (🛒) to check everything you chose.</p>
+   <a class="btn" href="index.html#sweets" data-i18n="startShop">Start shopping</a>
+  </div></div>
+
+  <div class="stp"><div>
+   <h3 data-i18n="s2t">Send your order on WhatsApp</h3>
+   <p data-i18n="s2d">In the cart, type your name, phone number and delivery address, then press "Place order on WhatsApp". We will reply with your final total, including delivery.</p>
+  </div></div>
+
+  <div class="stp"><div>
+   <h3 data-i18n="s3t">Pay the amount to our bank account</h3>
+   <p data-i18n="s3d">Transfer the total we confirmed to the account below. Please write your name or phone number as the payment reference.</p>
+  </div></div>
+
+  <div class="stp"><div>
+   <h3 data-i18n="s4t">Send us the payment slip on WhatsApp</h3>
+   <p data-i18n="s4d">Take a photo or screenshot of your bank slip and send it to us on WhatsApp. We will confirm your order and prepare it fresh.</p>
+   <a class="btn" target="_blank" rel="noopener" href="https://wa.me/94773636717?text=Hello%2C%20I%20have%20paid%20for%20my%20order.%0AName%3A%20%0AAmount%20paid%3A%20Rs%20%0AMy%20payment%20slip%20is%20attached." data-i18n="sendSlip">Send payment slip</a>
+  </div></div>
+ </div>
+
+ <div class="two">
+  <!-- REPLACE the bank details below with your real account -->
+  <div class="box"><h3>🏦 <span data-i18n="bankH">Bank details</span></h3>
+   <dl>
+    <dt data-i18n="bBank">Bank</dt><dd>Your Bank Name</dd>
+    <dt data-i18n="bName">Account name</dt><dd>Dilena Rasa Gamana</dd>
+    <dt data-i18n="bNum">Account number</dt><dd><span id="acc">0000 0000 0000</span><button class="btn" id="cp" type="button" data-i18n="copyB">Copy</button></dd>
+    <dt data-i18n="bBranch">Branch</dt><dd>Your Branch</dd>
+   </dl></div>
+
+  <div class="box" id="contact"><h3>📞 <span data-i18n="contact">Contact Us</span></h3>
+   <dl>
+    <dt data-i18n="cWa">WhatsApp</dt><dd>+94 77 3636 717</dd>
+    <dt data-i18n="cPhone">Phone</dt><dd>+94 78 5237 317</dd>
+    <dt data-i18n="cEmail">Email</dt><dd>dilenamalip@gmail.com</dd>
+    <dt data-i18n="cHours">Hours</dt><dd data-i18n="hours">Daily 8.00 am – 8.00 pm</dd>
+    <dt data-i18n="cAddr">Address</dt><dd>No. 00, Main Street, Your City, Sri Lanka</dd>
+   </dl></div>
+ </div>
+
+ <p class="note" data-i18n="oNote">Your order is confirmed once we receive your payment slip. If you need help at any step, message us on WhatsApp.</p>
+</main>
+
+<footer>
+ <div class="pat"></div>
+ <div class="fgrid">
+  <div class="fb"><a class="logo" href="index.html"><img src="images/logo.png" alt="Logo"><span data-i18n="brand">Dilena Rasa Gamana</span></a>
+   <p data-i18n="foot">Traditional Sri Lankan sweets made fresh from family recipes and delivered to your door. Perfect for Avurudu, weddings, poya days and every celebration.</p>
+   <div class="soc"><a href="https://web.facebook.com/dilenakawum" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ic"><use href="#i-fb"/></svg></a><a href="https://wa.me/94773636717" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a></div></div>
+  <div><h4 data-i18n="shopH">Shop</h4><a href="order.html" data-i18n="order">Order Online</a><a href="index.html#sweets" data-i18n="n1">Our Sweets</a><a href="index.html#gift" data-i18n="boxes">Gift Boxes</a></div>
+  <div><h4 data-i18n="companyH">Company</h4><a href="#" data-i18n="about">About Us</a><a href="#contact" data-i18n="contact">Contact Us</a><a href="stores.html" data-i18n="stores">Store Locations</a></div>
+  <div><h4 data-i18n="visit">Visit &amp; Call Us</h4>
+   <address>
+    <span>📍 <span>859/B/1, Thumpaliya,waligampitiya, <br>Ja-Ela, Sri Lanka</span></span>
+    <span>📞 <span>+94 78 5237 317 <br>+94 77 3636 717</span></span>
+    <span>✉️ <span>dilenamalip@gmail.com</span></span>
+    <span>🕒 <span data-i18n="hours">Daily 8.00 am – 8.00 pm</span></span>
+   </address></div>
+ </div>
+ <div class="fbar"><span data-i18n="copyr">© 2026 Dilena Rasa Gamana. All rights reserved.</span>
+  <nav><a href="#" data-i18n="privacy">Privacy Policy</a><a href="#" data-i18n="terms">Terms &amp; Conditions</a><a href="#" data-i18n="refund">Refund Policy</a><a href="#hdr" data-i18n="top">Back to top ↑</a></nav></div>
+</footer>
+<a class="wa" href="https://wa.me/94773636717" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
+
+<!-- main.js handles the language switch and the Copy button on this page -->
+<script src="js/main.js"></script>
+</body></html>

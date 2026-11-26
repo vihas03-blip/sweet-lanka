@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment and sensitive credential files
+.env
+atlas-credentials.env
+*.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Backups and temporary files
+*.bak
+.DS_Store
+Thumbs.db

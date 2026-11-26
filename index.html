@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dilena Rasa Gamana | Traditional Sri Lankan Sweets</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Nunito+Sans:wght@400;600&family=Noto+Sans+Sinhala:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="i-fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+ <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+</defs></svg>
+<div id="loader"><img class="mark" src="images/logo.png" alt=""><p>Dilena Rasa Gamana</p></div>
+
+<header id="hdr">
+ <div class="top">
+  <nav class="tl"><a href="#" data-i18n="about">About Us</a><a href="order.html#contact" data-i18n="contact">Contact Us</a></nav>
+  <div class="tr"><a href="tel:+94773636717">📞 +94 77 3636 717</a><a href="stores.html">📍 <span data-i18n="stores">Store Locations</span></a></div>
+ </div>
+ <div class="main">
+  <a class="logo" href="#"><img src="images/logo.png" alt="Logo"><span data-i18n="brand">Dilena Rasa Gamana</span></a>
+  <input id="search" type="search" placeholder="Search sweets…" data-i18n-ph="search">
+  <nav id="nav"><a href="#sweets" data-i18n="n1">Our Sweets</a><a href="#gift" data-i18n="n3">Gift Box</a><a href="#reviews" data-i18n="n4">Reviews</a><a href="order.html" data-i18n="order">Order Online</a></nav>
+  <div class="tools">
+   <label class="lg">🌐 <select id="lang" aria-label="Language"><option value="en">English</option><option value="si">සිංහල</option><option value="ta">தமிழ்</option></select></label>
+   <button id="cartBtn" aria-label="Cart">🛒<b id="cnt">0</b></button>
+   <button id="burger" aria-label="Menu">☰</button>
+  </div>
+ </div>
+</header>
+
+
+<!-- ============ BANNER SLIDER: 2 images + 1 video + 1 image ============ -->
+<section class="hero">
+ <div class="track" id="track">
+  <!-- SLIDE 1 (IMAGE): first file = desktop image (1920x1080), file ending -m = phone image (1080x1920) -->
+  <div class="slide"><picture><source media="(max-width:768px)" srcset="images/banner2-m.jpg"><img src="images/banner2.jpg" alt=""></picture><div class="cap low"><h1 data-i18n="gift">Build your gift box</h1><a class="btn" href="#gift" data-i18n="shop">Shop now</a></div></div>
+  <!-- SLIDE 2 (IMAGE) -->
+  <div class="slide"><picture><source media="(max-width:768px)" srcset="images/banner3-m.jpg"><img src="images/banner3.jpg" alt=""></picture><div class="cap"><h1 data-i18n="n1">Our Sweets</h1><a class="btn" href="#sweets" data-i18n="shop">Shop now</a></div></div>
+  <!-- SLIDE 3 (HOW TO ORDER ANIMATION): 6-second animated interactive demo -->
+  <div class="slide slide-order" id="orderSlide">
+   <div class="os-bg"></div>
+   <div class="os-wrap">
+    <!-- Left Column: Steps & Text -->
+    <div class="os-info">
+     <span class="os-badge" data-i18n="osBadge">⚡ 4 Simple Steps</span>
+     <h2 class="os-title" data-i18n="oTitle">How to Order Online</h2>
+     <div class="os-stepper" id="osStepper">
+      <div class="os-step is-active" data-step="1">
+       <span class="os-icon">🍬</span>
+       <div class="os-txt">
+        <strong data-i18n="os1">Choose your sweets</strong>
+        <span data-i18n="os1sub">Select your favorites or build a gift box</span>
+       </div>
+      </div>
+      <div class="os-step" data-step="2">
+       <span class="os-icon">🛒</span>
+       <div class="os-txt">
+        <strong data-i18n="os2">Add to cart</strong>
+        <span data-i18n="os2sub">Tap add to cart &amp; check your items</span>
+       </div>
+      </div>
+      <div class="os-step" data-step="3">
+       <span class="os-icon">💬</span>
+       <div class="os-txt">
+        <strong data-i18n="os3">Send order on WhatsApp</strong>
+        <span data-i18n="os3sub">Send your name, address &amp; phone</span>
+       </div>
+      </div>
+      <div class="os-step" data-step="4">
+       <span class="os-icon">🏦</span>
+       <div class="os-txt">
+        <strong data-i18n="os4">Pay and send your slip</strong>
+        <span data-i18n="os4sub">Bank transfer &amp; slip verification</span>
+       </div>
+      </div>
+     </div>
+     <div class="os-bar-wrap">
+      <div class="os-bar" id="osBar"></div>
+     </div>
+     <div class="os-action">
+      <a class="btn" href="order.html" data-i18n="order">Order Online</a>
+     </div>
+    </div>
+
+    <!-- Right Column: Animated Live Website Simulation Mockup -->
+    <div class="os-demo" id="osDemo" aria-hidden="true">
+     <div class="os-phone">
+      <!-- Mockup Browser / Phone Top Bar -->
+      <div class="os-phone-bar">
+       <div class="os-phone-dots">
+        <span class="os-phone-dot"></span>
+        <span class="os-phone-dot"></span>
+        <span class="os-phone-dot"></span>
+       </div>
+       <span class="os-phone-url">dilena.lk/order</span>
+       <div class="os-phone-cart">🛒<span class="os-badge-cnt" id="osBadgeCnt">0</span></div>
+      </div>
+
+      <!-- Animated Stage Displaying the 4 Steps -->
+      <div class="os-stage" id="osStage">
+       <!-- Fly Sweet particle -->
+       <div class="os-fly-sweet" id="osFlySweet">🍬</div>
+       <!-- Simulated Hand / Cursor Pointer -->
+       <div class="os-cursor" id="osCursor"></div>
+
+       <!-- STAGE 1: Choose Your Sweets (Product Card) -->
+       <div class="os-scene os-scene-1" id="osScene1">
+        <div class="os-card">
+         <div class="os-card-img"><img src="images/Kavum.jpg" alt="Kavum"></div>
+         <div class="os-card-body">
+          <h4>Kavum</h4>
+          <p class="os-price">Rs 60</p>
+          <div class="os-card-qty"><span>−</span><b id="osCardQty">5</b><span>+</span></div>
+          <button class="os-card-btn" id="osCardBtn"><span>+ Add to cart</span></button>
+         </div>
+        </div>
+       </div>
+
+       <!-- STAGE 2: Cart Drawer Opened -->
+       <div class="os-scene os-scene-2" id="osScene2">
+        <div class="os-cart-drawer">
+         <div class="os-drawer-head">
+          <b data-i18n="yourCart">Your cart</b>
+          <span class="os-drawer-close">✕</span>
+         </div>
+         <div class="os-drawer-item">
+          <div class="os-item-pic"><img src="images/Kavum.jpg" alt="Kavum"></div>
+          <div class="os-item-info">
+           <b>Kavum</b>
+           <span>Rs 60 × 5</span>
+          </div>
+          <b class="os-item-total">Rs 300</b>
+         </div>
+         <div class="os-drawer-sub">
+          <span data-i18n="subtotal">Subtotal</span>
+          <b>Rs 300</b>
+         </div>
+         <div class="os-drawer-form">
+          <div class="os-field"><span>👤 Kasun Perera</span></div>
+          <div class="os-field"><span>📞 077 363 6717</span></div>
+          <div class="os-field"><span>📍 Ja-Ela, Sri Lanka</span></div>
+          <div class="os-btn-wa" id="osWaBtn">
+           <svg viewBox="0 0 24 24" class="os-wa-icon"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+           <span data-i18n="placeOrder">Place order on WhatsApp</span>
+          </div>
+         </div>
+        </div>
+       </div>
+
+       <!-- STAGE 3: WhatsApp Sent & Chat Bubble -->
+       <div class="os-scene os-scene-3" id="osScene3">
+        <div class="os-chat-window">
+         <div class="os-chat-header">
+          <div class="os-chat-avatar"><img src="images/logo.png" alt="Dilena"></div>
+          <div>
+           <b>Dilena Rasa Gamana</b>
+           <small>Online · Typically replies in minutes</small>
+          </div>
+         </div>
+         <div class="os-chat-body">
+          <div class="os-chat-msg os-chat-out">
+           <p>✨ <b>New Order Request:</b><br>• Kavum ×5 (Rs 300)<br>👤 Kasun Perera<br>📍 Ja-Ela</p>
+           <span class="os-chat-time">10:32 AM ✓✓</span>
+          </div>
+          <div class="os-chat-msg os-chat-in">
+           <p>👋 Hello Kasun! Order received.<br>Total with delivery: <b>Rs 650</b>.<br>Please transfer to our Commercial Bank account and share the slip! 🍬</p>
+           <span class="os-chat-time">10:33 AM</span>
+          </div>
+         </div>
+        </div>
+       </div>
+
+       <!-- STAGE 4: Bank Transfer & Payment Slip Sent -->
+       <div class="os-scene os-scene-4" id="osScene4">
+        <div class="os-bank-card">
+         <div class="os-bank-badge">✓ PAYMENT VERIFIED</div>
+         <div class="os-bank-top">
+          <span class="os-bank-icon">🏦</span>
+          <div>
+           <b>Commercial Bank PLC</b>
+           <small>Acc: 8009 1234 5678</small>
+          </div>
+         </div>
+         <div class="os-slip-box">
+          <div class="os-slip-header">
+           <span>📄 Transfer Receipt</span>
+           <b>Rs 650.00</b>
+          </div>
+          <div class="os-slip-detail">
+           <span>Status:</span> <b class="os-status-done">Completed ✓</b>
+          </div>
+          <div class="os-slip-detail">
+           <span>Ref:</span> <b>Kasun Perera</b>
+          </div>
+          <div class="os-slip-badge">Slip sent on WhatsApp 💬</div>
+         </div>
+         <div class="os-success-pill">
+          🎉 Order Confirmed! Preparing Fresh daily 🌿
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- SLIDE 4 (IMAGE) -->
+  <div class="slide slide-b4"><picture><source media="(max-width:768px)" srcset="images/banner4-m.jpg"><img src="images/banner4.jpg" alt="Fresh daily"></picture><div class="cap cap-b4"><h1 class="cap-b4-title" data-i18n="fresh">Fresh daily</h1><a class="btn" href="#sweets" data-i18n="shop">Shop now</a></div></div>
+ </div>
+ <button class="arr" id="prev" aria-label="Previous">‹</button><button class="arr r" id="next" aria-label="Next">›</button>
+ <div id="dots"></div>
+</section>
+
+<section class="trust"><div>🌿 <span data-i18n="fresh">Fresh daily</span></div><div>🚚 <span data-i18n="deliv">Island-wide delivery</span></div><div>🔒 <span data-i18n="pay">Safe payment</span></div></section>
+
+<section id="sweets"><h2 data-i18n="n1">Our Sweets</h2><div class="pat"></div><div id="grid"></div></section>
+
+<section class="ribbon"><h2 data-i18n="ribbon">Avurudu · Weddings · Poya · Gifts</h2><a class="btn" href="#gift" data-i18n="gift">Build your gift box</a></section>
+
+<section id="gift"><h2 data-i18n="gift">Build your gift box</h2><div class="pat"></div>
+ <div id="pick"></div>
+ <div id="slots"></div>
+ <p class="tot"><span data-i18n="total">Total</span>: <b id="tot">Rs 0</b> <small data-i18n="boxFee">(+ Rs 200 box)</small></p>
+ <button class="btn" id="addBox" disabled><span data-i18n="add">Add to cart</span></button></section>
+
+<section id="stories" class="cr"><h2 data-i18n="stories">Sweet stories</h2><div class="pat"></div>
+ <p class="sintro" data-i18n="sintro">Every April, Sri Lankan kitchens fill with the smell of coconut oil and kithul treacle. These eight sweets are the heart of the Avurudu table.</p>
+ <div id="flips"></div></section>
+
+<section id="reviews"><h2 data-i18n="rev">Customer reviews</h2><div class="pat"></div>
+ <p class="avg" id="avg"></p><div id="rl"></div>
+ <form id="rf"><h3 data-i18n="write">Write a review</h3>
+  <input id="rn" placeholder="Name" data-i18n-ph="nameph" required maxlength="40">
+  <select id="rr"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select>
+  <textarea id="rt" placeholder="Your comment" data-i18n-ph="commentph" required maxlength="300"></textarea>
+  <input id="rh" class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <button class="btn" data-i18n="submitRev">Submit review</button>
+  <p class="rmsg" id="rmsg" role="status"></p></form></section>
+
+<section class="cr news"><h2 data-i18n="newsH">Stay sweetly updated</h2><form onsubmit="event.preventDefault();this.reset();alert(t('thanks'))"><input type="email" placeholder="Email" data-i18n-ph="emailph" required><button class="btn" data-i18n="sub">Subscribe</button></form></section>
+
+<footer>
+ <div class="pat"></div>
+ <div class="fgrid">
+  <div class="fb"><a class="logo" href="#"><img src="images/logo.png" alt="Logo"><span data-i18n="brand">Dilena Rasa Gamana</span></a>
+   <p data-i18n="foot">Traditional Sri Lankan sweets made fresh from family recipes and delivered to your door. Perfect for Avurudu, weddings, poya days and every celebration.</p>
+   <div class="soc"><a href="https://web.facebook.com/dilenakawum" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ic"><use href="#i-fb"/></svg></a><a href="https://wa.me/94773636717" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a></div></div>
+  <div><h4 data-i18n="shopH">Shop</h4><a href="order.html" data-i18n="order">Order Online</a><a href="#" onclick="document.body.classList.add('co');return false" data-i18n="cartL">Cart</a><a href="#sweets" data-i18n="n1">Our Sweets</a><a href="#gift" data-i18n="boxes">Gift Boxes</a></div>
+  <div><h4 data-i18n="companyH">Company</h4><a href="#" data-i18n="about">About Us</a><a href="order.html#contact" data-i18n="contact">Contact Us</a><a href="stores.html" data-i18n="stores">Store Locations</a></div>
+  <div><h4 data-i18n="visit">Visit &amp; Call Us</h4>
+   <address>
+    <span>📍 <span>859/B/1, Thumpaliya,waligampitiya, <br>Ja-Ela, Sri Lanka</span></span>
+    <span>📞 <span>+94 78 5237 317 <br>+94 77 3636 717</span></span>
+    <span>✉️ <span>dilenamalip@gmail.com</span></span>
+    <span>🕒 <span data-i18n="hours">Daily 8.00 am – 8.00 pm</span></span>
+   </address></div>
+ </div>
+ <div class="fbar"><span data-i18n="copyr">© 2026 Dilena Rasa Gamana. All rights reserved.</span>
+  <nav><a href="#" data-i18n="privacy">Privacy Policy</a><a href="#" data-i18n="terms">Terms &amp; Conditions</a><a href="#" data-i18n="refund">Refund Policy</a><a href="#hdr" data-i18n="top">Back to top ↑</a></nav></div>
+</footer>
+<a class="wa" href="https://wa.me/94773636717" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
+
+<div id="ov"></div>
+<aside id="cd" aria-label="Cart">
+ <div class="ch"><h3 data-i18n="yourCart">Your cart</h3><button id="cx" aria-label="Close">✕</button></div>
+ <div id="cl"></div>
+ <div class="cf"><p class="sub"><span data-i18n="subtotal">Subtotal</span><b id="cs">Rs 0</b></p><p class="sm"><span data-i18n="delivNote">Delivery charges are confirmed on WhatsApp.</span> <a href="order.html" style="color:var(--br);font-weight:600" data-i18n="howPay">How to pay</a></p>
+  <form id="of"><input id="on" placeholder="Your name" data-i18n-ph="nameph2" required><input id="op" type="tel" placeholder="Phone number" data-i18n-ph="phoneph" required><textarea id="oa" rows="2" placeholder="Delivery address" data-i18n-ph="addrph" required></textarea><button class="btn" id="ob" disabled data-i18n="placeOrder">Place order on WhatsApp</button></form></div>
+</aside>
+
+<dialog id="qvd"><form method="dialog"><button class="x" aria-label="Close">✕</button></form><div id="qvc"></div></dialog>
+<script src="js/main.js"></script>
+</body></html>
