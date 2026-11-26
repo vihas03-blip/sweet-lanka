@@ -1490,25 +1490,3 @@ body.co { overflow: hidden; }   /* stops the page scrolling behind the cart */
   color: #5A3A22;              /* brown, the same as your site's text color */
   font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
-
-/* Banner 4 slide: artwork already has baked-in typography */
-.slide-b4 picture img {
-  object-position: top center;
-}
-.cap.cap-b4 {
-  background: none;
-  justify-content: flex-end;
-  padding-bottom: clamp(40px, 10vh, 90px);
-}
-.cap.cap-b4 .cap-b4-title {
-  display: none; /* Heading is already beautifully painted in the banner artwork */
-}
-.cap.cap-b4 .btn {
-  box-shadow: 0 4px 14px rgba(90, 58, 34, 0.25);
-}
-@media (max-width: 768px) {
-  .cap.cap-b4 {
-    align-items: center;
-    padding-bottom: 35px;
-  }
-}
