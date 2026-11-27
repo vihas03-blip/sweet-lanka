@@ -45,7 +45,7 @@ const ST=[
 
 /* ===== TRANSLATIONS: every visible word on the site (English / Sinhala / Tamil) ===== */
 const T={
-en:{stIntro:'Visit us at any of our stores. Tap "Get directions" to open the place in Google Maps.',getDir:'Get directions',mainStore:'Main Store',brand:'Dilena Rasa Gamana',about:'About Us',contact:'Contact Us',stores:'Store Locations',search:'Search sweets…',n1:'Our Sweets',n3:'Gift Box',n4:'Reviews',order:'Order Online',
+en:{stIntro:'Visit us at any of our stores. Tap "Get directions" to open the place in Google Maps.',getDir:'Get directions',mainStore:'Main Store',brand:'Dilena\nRasa Gamana',about:'About Us',contact:'Contact Us',stores:'Store Locations',search:'Search sweets…',n1:'Our Sweets',n3:'Gift Box',n4:'Reviews',order:'Order Online',
  h1:'The taste of tradition',shop:'Shop now',fresh:'Fresh daily',deliv:'Island-wide delivery',pay:'Safe payment',
  ribbon:'Avurudu · Weddings · Poya · Gifts',gift:'Build your gift box',total:'Total',boxFee:'(+ Rs 200 box)',add:'Add to cart',view:'Quick view',tapFill:'Tap sweets above to fill your box',giftName:'Gift box',
  stories:'Sweet stories',tap:'Tap to read the story',sintro:'Every April, Sri Lankan kitchens fill with the smell of coconut oil and kithul treacle. These eight sweets are the heart of the Avurudu table.',
@@ -68,7 +68,7 @@ en:{stIntro:'Visit us at any of our stores. Tap "Get directions" to open the pla
   os2:'Add to cart',os2sub:'Tap add to cart & check your items',
   os3:'Send order on WhatsApp',os3sub:'Send your name, address & phone',
   os4:'Pay and send your slip',os4sub:'Bank transfer & slip verification'},
-si:{stIntro:'අපගේ ඕනෑම අලෙවිසැලකට පැමිණෙන්න. ස්ථානය Google Maps හි විවෘත කිරීමට "මාර්ගය බලන්න" ඔබන්න.',getDir:'මාර්ගය බලන්න',mainStore:'ප්‍රධාන අලෙවිසැල',brand:'දිලෙන රස ගමන',about:'අපි ගැන',contact:'අප අමතන්න',stores:'අලෙවිසැල් ස්ථාන',search:'රසකැවිලි සොයන්න…',n1:'අපේ රසකැවිලි',n3:'තෑගි පෙට්ටිය',n4:'සමාලෝචන',order:'මාර්ගගතව ඇණවුම් කරන්න',
+si:{stIntro:'අපගේ ඕනෑම අලෙවිසැලකට පැමිණෙන්න. ස්ථානය Google Maps හි විවෘත කිරීමට "මාර්ගය බලන්න" ඔබන්න.',getDir:'මාර්ගය බලන්න',mainStore:'ප්‍රධාන අලෙවිසැල',brand:'දිලෙන\nරස ගමන',about:'අපි ගැන',contact:'අප අමතන්න',stores:'අලෙවිසැල් ස්ථාන',search:'රසකැවිලි සොයන්න…',n1:'අපේ රසකැවිලි',n3:'තෑගි පෙට්ටිය',n4:'සමාලෝචන',order:'මාර්ගගතව ඇණවුම් කරන්න',
  h1:'සම්ප්‍රදායේ රසය',shop:'දැන් මිලදී ගන්න',fresh:'දිනපතා නැවුම්',deliv:'දිවයින පුරා බෙදාහැරීම',pay:'ආරක්ෂිත ගෙවීම්',
  ribbon:'අවුරුදු · මංගල · පෝය · තෑගි',gift:'ඔබේම තෑගි පෙට්ටිය සාදන්න',total:'මුළු මුදල',boxFee:'(+ පෙට්ටිය රු. 200)',add:'කරත්තයට එක් කරන්න',view:'ඉක්මන් බැලීම',tapFill:'ඔබේ පෙට්ටිය පිරවීමට ඉහත රසකැවිලි ඔබන්න',giftName:'තෑගි පෙට්ටිය',
  stories:'රසකැවිලි කතා',tap:'කතාව කියවන්න ඔබන්න',sintro:'සෑම අප්‍රේල් මාසයකම ශ්‍රී ලංකාවේ මුළුතැන්ගෙවල් පොල්තෙල් සහ කිතුල් පැණි සුවඳින් පිරී යයි. මෙම රසකැවිලි අට අවුරුදු මේසයේ හදවතයි.',
@@ -91,7 +91,7 @@ si:{stIntro:'අපගේ ඕනෑම අලෙවිසැලකට පැම�
   os2:'කරත්තයට එක් කරන්න',os2sub:'කරත්තයට එක්කර තෝරාගත් දෑ බලන්න',
   os3:'WhatsApp හරහා ඇණවුම එවන්න',os3sub:'නම, ලිපිනය සහ දුරකථන අංකය එවන්න',
   os4:'ගෙවා රිසිට්පත එවන්න',os4sub:'බැංකු හුවමාරුව සහ රිසිට්පත තහවුරු කිරීම'},
-ta:{stIntro:'எங்கள் எந்தக் கடைக்கும் வாருங்கள். இடத்தை Google Maps-இல் திறக்க "வழிகாட்டுதல் பெறுக" என்பதைத் தொடவும்.',getDir:'வழிகாட்டுதல் பெறுக',mainStore:'முதன்மைக் கடை',brand:'திலேன ரச கமன',about:'எங்களைப் பற்றி',contact:'தொடர்புகொள்ள',stores:'கடை இருப்பிடங்கள்',search:'இனிப்புகளைத் தேடுங்கள்…',n1:'எங்கள் இனிப்புகள்',n3:'பரிசுப் பெட்டி',n4:'மதிப்புரைகள்',order:'ஆன்லைனில் ஆர்டர் செய்யுங்கள்',
+ta:{stIntro:'எங்கள் எந்தக் கடைக்கும் வாருங்கள். இடத்தை Google Maps-இல் திறக்க "வழிகாட்டுதல் பெறுக" என்பதைத் தொடவும்.',getDir:'வழிகாட்டுதல் பெறுக',mainStore:'முதன்மைக் கடை',brand:'திலேன\nரச கமன',about:'எங்களைப் பற்றி',contact:'தொடர்புகொள்ள',stores:'கடை இருப்பிடங்கள்',search:'இனிப்புகளைத் தேடுங்கள்…',n1:'எங்கள் இனிப்புகள்',n3:'பரிசுப் பெட்டி',n4:'மதிப்புரைகள்',order:'ஆன்லைனில் ஆர்டர் செய்யுங்கள்',
  h1:'பாரம்பரியத்தின் சுவை',shop:'இப்போது வாங்குங்கள்',fresh:'தினமும் புதியது',deliv:'நாடு முழுவதும் விநியோகம்',pay:'பாதுகாப்பான கட்டணம்',
  ribbon:'புத்தாண்டு · திருமணம் · பூரணை · பரிசுகள்',gift:'உங்கள் பரிசுப் பெட்டியை உருவாக்குங்கள்',total:'மொத்தம்',boxFee:'(+ பெட்டி ரூ. 200)',add:'கூடையில் சேர்',view:'விரைவுப் பார்வை',tapFill:'உங்கள் பெட்டியை நிரப்ப மேலே உள்ள இனிப்புகளைத் தொடவும்',giftName:'பரிசுப் பெட்டி',
  stories:'இனிப்புக் கதைகள்',tap:'கதையைப் படிக்கத் தொடவும்',sintro:'ஒவ்வோர் ஏப்ரல் மாதமும் இலங்கையின் சமையலறைகள் தேங்காய் எண்ணெய் மற்றும் கித்துள் பாகின் மணத்தால் நிறைகின்றன. இந்த எட்டு இனிப்புகளே புத்தாண்டு மேசையின் இதயம்.',
@@ -411,3 +411,11 @@ setLang(LS.getItem('lang')||'en');
 
 const setH=()=>document.documentElement.style.setProperty('--hh',$('#hdr').offsetHeight+'px');
 setH();addEventListener('resize',setH);addEventListener('load',setH);
+
+/* ===== PHONES: header slides away when you scroll down, comes back when you scroll up ===== */
+(()=>{const h=$('#hdr');let last=scrollY;
+ addEventListener('scroll',()=>{const y=scrollY;
+  if(innerWidth>800||y<120||$('#nav.open'))h.classList.remove('hide');
+  else if(y>last+6)h.classList.add('hide');
+  else if(y<last-6)h.classList.remove('hide');
+  last=y},{passive:true})})();

@@ -1429,15 +1429,43 @@ body.co { overflow: hidden; }   /* stops the page scrolling behind the cart */
 }
 
 @media (max-width: 800px) {
-  /* Header: logo + cart on row 1, search on row 2, menu opens under it */
+  /* a little smaller text everywhere on phones (was 16px) */
+  html { font-size: 15px; scroll-padding-top: calc(var(--hh, 110px) + 8px); }
+
+  /* thin top bar */
   .tl { display: none; }
-  .top { justify-content: center; }
-  .main { flex-wrap: wrap; }
-  .logo { flex: 1; }
-  #search { order: 3; flex: 1 0 100%; max-width: none; }
-  #burger { display: block; }
-  #nav { order: 4; flex: 1 0 100%; display: none; flex-direction: column; gap: 10px; padding: 6px 0; text-align: center; }
+  .top { justify-content: center; padding: 3px 4vw; font-size: .78rem; }
+  .tr { gap: 16px; }
+
+  /* header can slide away (see the JS in step 3) */
+  #hdr { transition: transform .3s; }
+  #hdr.hide { transform: translateY(-100%); }
+
+  /* Row 1: logo + name (left), cart/menu/English (right). Row 2: search. */
+  .main { flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 8px 4vw 10px; }
+  .logo { flex: 1; min-width: 0; gap: 10px; }
+  .logo img { width: 54px; height: 54px; }
+  .main .logo span { font-size: 1.1rem; line-height: 1.15; white-space: pre-line; } /* shows the 2-line name */
+
+  /* cart + menu on top, English underneath */
+  .tools { display: grid; grid-template-columns: auto auto; justify-content: end; justify-items: end; gap: 6px; }
+  .lg { order: 2; grid-column: 1 / -1; }
+  .tools select { font-size: .85rem; padding: 4px 10px; }
+  #cartBtn, #burger { width: 38px; height: 38px; padding: 0; border-radius: 50%; }
+  #burger { display: grid; place-items: center; font-size: 1rem; }
+  #cnt { top: -5px; right: -5px; min-width: 17px; height: 17px; font-size: .65rem; }
+
+  /* search goes under everything */
+  #search { order: 3; flex: 1 0 100%; max-width: none; margin-left: 0; font-size: .95rem; padding: 8px 14px; }
+
+  /* menu opens under the search bar */
+  #nav { order: 4; flex: 1 0 100%; display: none; flex-direction: column; gap: 8px; padding: 4px 0; text-align: center; }
+  #nav a { font-size: 1rem; }
   #nav.open { display: flex; }
+
+  /* order.html / stores.html menu links */
+  .main .nv { order: 3; flex: 1 0 100%; justify-content: center; gap: 4px 16px; margin-left: 0; }
+  .main .nv a { font-size: .95rem; }
 
   .arr { display: none; }              /* swipe/auto-slide on phones */
   #qvc { grid-template-columns: 1fr; } /* quick view stacks */
