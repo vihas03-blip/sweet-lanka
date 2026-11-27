@@ -1518,3 +1518,46 @@ body.co { overflow: hidden; }   /* stops the page scrolling behind the cart */
   color: #5A3A22;              /* brown, the same as your site's text color */
   font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
+
+/* ==========================================================================
+   20. PHONES: 2 items per row + "How to Order" slide that fits
+   ========================================================================== */
+@media (max-width: 800px) {
+
+  /* --- Sweets: 2 per row --- */
+  #grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .card { border-radius: 12px; }
+  .info { padding: 10px; }
+  .info h3 { font-size: 1rem; }
+  .info .pr { margin: 2px 0 8px; font-size: .9rem; }
+  .cq { gap: 4px; margin-bottom: 8px; }
+  .cq button { width: 28px; height: 28px; }
+  .cq .qi { width: 50px; padding: 3px; }
+  .acts { flex-direction: column; gap: 6px; }      /* buttons stack so they fit the narrow card */
+  .acts button { padding: 6px; font-size: .85rem; }
+
+  /* --- Sweet stories flip cards: 2 per row --- */
+  #flips { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .flip { height: 250px; }
+  .f, .b { padding: 12px; border-radius: 12px; }
+  .f span { font-size: 1.15rem; }
+  .f small { font-size: .75rem; }
+  .f em { font-size: .7rem; }
+  .b h4 { font-size: 1rem; margin-bottom: 6px; }
+  .b p { font-size: .78rem; line-height: 1.45; }  /* long stories scroll inside the card */
+
+  /* --- WhatsApp button a bit smaller so it covers less --- */
+  .wa { width: 46px; height: 46px; right: 12px; bottom: 12px; }
+  .wa .ic { width: 26px; height: 26px; }
+
+  /* --- "How to Order" slide: everything fits in one phone screen --- */
+  .os-wrap { height: 100%; padding: 8px 4vw; gap: 8px; align-content: center; overflow: hidden; }
+  .os-badge { display: none; }
+  .os-title { font-size: 1.15rem; margin: 0 0 6px; }
+  .os-stepper { flex-wrap: nowrap; gap: 6px; margin-bottom: 8px; }
+  .os-step { padding: 5px; flex: 0 0 auto; }
+  .os-txt { display: none; }                       /* icons only on phones */
+  .os-bar-wrap { margin-bottom: 8px; }
+  .os-action .btn { padding: 7px 20px; font-size: .9rem; }
+  .os-phone { zoom: .9; }                          /* shrinks the whole demo; lower it (.8, .75) if still cut off */
+}
